@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NavbarComponent} from '../app/components/navbar/navbar.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { HomeComponent } from './pages/home/home.component';
+import { VentasComponent } from './pages/ventas/ventas.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { HomeComponent } from './pages/home/home.component';
     AppComponent,
     NavbarComponent,
     ClientesComponent,
-    HomeComponent
+    HomeComponent,
+    VentasComponent,
+    FooterComponent
 
 
   ],

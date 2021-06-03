@@ -24,7 +24,7 @@ export class ClientesService {
   }
 
   EliminarPersona(DOCUMENTO: number) {
-    return this.http.put(api.clientes + "/" + DOCUMENTO,DOCUMENTO);
+    return this.http.put(api.clientes + "/" + DOCUMENTO, DOCUMENTO);
   }
 
 
