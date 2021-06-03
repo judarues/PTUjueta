@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs'
 import { Iclientes } from 'src/app/Interfaces/clientes';
 import { VentasService } from '../../services/ventas.service';
 import { FormBuilder, Validators } from '@angular/forms'
+import { ArticulosService } from '../../services/articulos.service'
 
 
 @Component({
@@ -15,7 +16,8 @@ export class VentasComponent implements OnInit {
 
   Http !: Subscription;
   constructor(private formBuilder: FormBuilder,
-    private ListVentas: VentasService,) { }
+    private ListVentas: VentasService,
+    private listArticulos: ArticulosService) { }
 
   ngOnInit(): void {
 
@@ -44,8 +46,22 @@ export class VentasComponent implements OnInit {
     return this.registerForm.get('Nombre');
   }
   get IdPersona() {
-    return this.registerForm.get('IdPersona')
+    return this.registerForm.get('IdPersona');
   }
+  get idArticulo() {
+    return this.registerForm.get('idArticulo');
+  }
+  get Articulo() {
+    return this.registerForm.get('Articulo');
+  }
+  get precio() {
+    return this.registerForm.get('precio');
+  }
+  get cantidad(){
+    return this.registerForm.get('cantidad');
+  }
+
+
 
   registerForm = this.formBuilder.group({
     IdVendedor: ['', [Validators.required]],
@@ -55,7 +71,12 @@ export class VentasComponent implements OnInit {
     Documento: ['', [Validators.required]],
     Tipo: ['', [Validators.required]],
     Nombre: ['', [Validators.required]],
-    IdPersona: ['', [Validators.required]]
+    IdPersona: ['', [Validators.required]],
+    idArticulo: ['', [Validators.required]],
+    Articulo: ['', [Validators.required]],
+    precio: ['', [Validators.required]],
+    cantidad: ['', [Validators.required]],
+
   });
 
   //consultar persona
@@ -85,6 +106,16 @@ export class VentasComponent implements OnInit {
       this.registerForm.get('Nombre').setValue("");
       this.registerForm.get('IdPersona').setValue("")
     }
+  }
+  // Funcion para COnsultar Articulos
+  ConsultarArticulos(datos: any) {
+    this.Http = this.listArticulos.consultarArticulos(datos.value.idArticulo)
+      .subscribe((res: any) => {
+        console.log(res);
+        this.registerForm.get('Articulo').setValue(res.data.NOMBRE);
+        this.registerForm.get('precio').setValue(res.data.VALOR_UNIDAD)
+      })
+
   }
 
 

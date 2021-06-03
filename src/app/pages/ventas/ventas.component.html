@@ -236,11 +236,11 @@
 
           <div class="input-group mb-3">
             <input type="text" name="" hidden="true" formControlName="IdPersona">
-            <span class="input-group-text" id="basic-addon1" style="font-weight: bold;">Documento</span>
-            <input type="number" class="form-control" placeholder="Digite sus Cedula" aria-label="Username"
-              aria-describedby="basic-addon1" id="documento" formControlName="Documento">
+            <span class="input-group-text" id="basic-addon1" style="font-weight: bold;">Codigo Articulo</span>
+            <input type="number" class="form-control" placeholder="Digite el Codigo del Articulo" aria-label="Username"
+              aria-describedby="basic-addon1" id="documento" formControlName="idArticulo">
             <span class="input-group-text" id="basic-addon1" style="font-weight: bold;">
-              <button type="button" class="btn btn-primary" (click)="BuscarPersona(registerForm,'vendedor')"> <svg
+              <button type="button" class="btn btn-primary" (click)="ConsultarArticulos(registerForm)"> <svg
                   xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
                   viewBox="0 0 16 16">
                   <path
@@ -251,7 +251,18 @@
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1" style="font-weight: bold;">Nombres</span>
             <input type="text" class="form-control" placeholder="Nombres" aria-label="Username"
-              aria-describedby="basic-addon1" id="nombre" formControlName="Nombre" readonly="true">
+              aria-describedby="basic-addon1" id="nombre" formControlName="Articulo" readonly="true">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1" style="font-weight: bold;">Precio Unidad</span>
+            <input type="text" class="form-control" placeholder="Nombres" aria-label="Username"
+              aria-describedby="basic-addon1" id="nombre" formControlName="precio" readonly="true">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1" style="font-weight: bold;">Cantidad</span>
+            <input type="number" class="form-control" placeholder="Cantidad Unidades" aria-label="Username"
+              aria-describedby="basic-addon1" id="nombre" formControlName="cantidad" >
           </div>
 
         </div>
