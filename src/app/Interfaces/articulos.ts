@@ -7,3 +7,5 @@ export interface IArticulos {
   VALOR_UNIDAD: number
 
 }
+
+
